@@ -25,8 +25,8 @@ public class JoyStickClass {
     public static final int STICK_LEFT = 7;
     public static final int STICK_UPLEFT = 8;
 
-    private int STICK_ALPHA = 200;
-    private int LAYOUT_ALPHA = 200;
+    private int STICK_ALPHA = 100;
+    private int LAYOUT_ALPHA = 100;
     private int OFFSET = 0;
 
     private Context mContext;
@@ -108,14 +108,14 @@ public class JoyStickClass {
 
     public int getY() {
         if(distance > min_distance && touch_state) {
-            return position_y;
+            return -position_y;
         }
         return 0;
     }
 
     public float getAngle() {
         if(distance > min_distance && touch_state) {
-            return angle;
+            return (float) (angle*Math.PI/180);
         }
         return 0;
     }
