@@ -108,14 +108,14 @@ public class JoyStickClass {
 
     public int getY() {
         if(distance > min_distance && touch_state) {
-            return position_y;
+            return -position_y;
         }
         return 0;
     }
 
     public float getAngle() {
         if(distance > min_distance && touch_state) {
-            return angle;
+            return (float) (angle*Math.PI/180);
         }
         return 0;
     }
