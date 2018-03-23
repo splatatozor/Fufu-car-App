@@ -2,14 +2,12 @@ package com.sakab.fufu_car_app;
 
 import android.os.Bundle;
 import android.app.Activity;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import static java.lang.Math.toIntExact;
 
 public class MainActivity extends Activity {
     RelativeLayout layout_joystick;
@@ -26,7 +24,7 @@ public class MainActivity extends Activity {
         js = new JoyStickClass(getApplicationContext(), layout_joystick, R.drawable.image_button);
         js.setStickSize(150, 150);
         js.setLayoutSize(500, 500);
-        js.setLayoutAlpha(100);
+        js.setLayoutAlpha(150);
         js.setStickAlpha(100);
         js.setOffset(80);
         js.setMinimumDistance(50);
@@ -36,7 +34,6 @@ public class MainActivity extends Activity {
                 js.drawStick(arg1);
                 if(arg1.getAction() == MotionEvent.ACTION_DOWN
                         || arg1.getAction() == MotionEvent.ACTION_MOVE) {
-
                     if(js.getX()/2 > 100){
                         X = 100;
                     }else if(js.getX()/2 < -100){
@@ -58,6 +55,7 @@ public class MainActivity extends Activity {
                 if(X != 0 && Y != 0){
                     X = (int) Math.round(Math.cos(js.getAngle())*100);
                     Y = (int) Math.round(Math.sin(js.getAngle())*100);
+
                 }
                 return true;
             }
