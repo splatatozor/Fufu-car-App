@@ -47,7 +47,6 @@ public class JoyStickClass {
         mContext = context;
 
         stick = BitmapFactory.decodeResource(mContext.getResources(), stick_res_id);
-
         stick_width = stick.getWidth();
         stick_height = stick.getHeight();
 
