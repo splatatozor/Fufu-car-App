@@ -25,8 +25,8 @@ public class JoyStickClass {
     public static final int STICK_LEFT = 7;
     public static final int STICK_UPLEFT = 8;
 
-    private int STICK_ALPHA = 100;
-    private int LAYOUT_ALPHA = 100;
+    private int STICK_ALPHA = 200;
+    private int LAYOUT_ALPHA = 200;
     private int OFFSET = 0;
 
     private Context mContext;
@@ -47,7 +47,6 @@ public class JoyStickClass {
         mContext = context;
 
         stick = BitmapFactory.decodeResource(mContext.getResources(), stick_res_id);
-
         stick_width = stick.getWidth();
         stick_height = stick.getHeight();
 
@@ -108,14 +107,14 @@ public class JoyStickClass {
 
     public int getY() {
         if(distance > min_distance && touch_state) {
-            return -position_y;
+            return position_y;
         }
         return 0;
     }
 
     public float getAngle() {
         if(distance > min_distance && touch_state) {
-            return (float) (angle*Math.PI/180);
+            return angle;
         }
         return 0;
     }
